@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { categories } from "./data.categories";
 import { GridDataResult, PageChangeEvent } from "@progress/kendo-angular-grid";
 import { SortDescriptor } from "@progress/kendo-data-query";
@@ -10,8 +10,90 @@ import { Observable } from "rxjs";
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [ProductService]
+  providers: [ProductService],
+
+  template: `
+    <kendo-appbar position="top">
+      <kendo-appbar-section>
+        <button class="k-button k-button-clear">
+          <kendo-icon name="menu"></kendo-icon>
+        </button>
+      </kendo-appbar-section>
+
+      <kendo-appbar-section>
+        <h1 class="title">Kendo UI for Angular</h1>
+      </kendo-appbar-section>
+
+      <kendo-appbar-spacer width="32px"></kendo-appbar-spacer>
+
+      <kendo-appbar-section>
+        <ul>
+          <li><span>What's New</span></li>
+          <li><span>About</span></li>
+          <li><span>Contacts</span></li>
+        </ul>
+      </kendo-appbar-section>
+
+      <kendo-appbar-spacer></kendo-appbar-spacer>
+
+      <kendo-appbar-section class="actions">
+        <kendo-badge-container>
+          <button class="k-button k-button-clear">
+            <kendo-icon name="bell"></kendo-icon>
+          </button>
+          <kendo-badge
+            shape="dot"
+            themeColor="warning"
+            size="small"
+            position="inside"
+          ></kendo-badge>
+        </kendo-badge-container>
+        <span class="k-appbar-separator"></span>
+      </kendo-appbar-section>
+
+      <kendo-appbar-section>
+        <avatar
+          shape="circle"
+          width="26px"
+          height="26px"
+        ></avatar>
+      </kendo-appbar-section>
+    </kendo-appbar>
+  `,
+  encapsulation: ViewEncapsulation.None,
+  styles: [
+    `
+      body {
+        background: #adadb1;
+      }
+      .title {
+        font-size: 18px;
+        margin: 0;
+      }
+      kendo-badge-container {
+        margin-right: 8px;
+      }
+      ul {
+        font-size: 14px;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+      }
+      li {
+        margin: 0 9px;
+      }
+      li:hover {
+        cursor: pointer;
+        color: #d6002f;
+      }
+      .actions .k-button {
+        padding: 0;
+      }
+    `,
+  ],
 })
+
 export class AppComponent {
 
   // used for the DropDownList
