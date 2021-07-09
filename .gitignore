@@ -1,0 +1,9 @@
+#Ignore Mac System files
+.DS_store
+
+#Virtual studio code settings
+.vscode
+
+#Ignore node_module folders
+node_modules
+
