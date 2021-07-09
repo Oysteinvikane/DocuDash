@@ -1,4 +1,3 @@
-//Install express server
 function requireHTTPS(req, res, next) {
     // The 'x-forwarded-proto' check is for Heroku
     if (!req.secure && req.get('x-forwarded-proto') !== 'https') {
@@ -6,14 +5,15 @@ function requireHTTPS(req, res, next) {
     }
     next();
 }
+
 const express = require('express');
 const app = express();
+
 app.use(requireHTTPS);
+app.use(express.static('./dist/DocDash'));
 
-// Serve only the static files form the dist directory
-app.use(express.static("docu-dash"));
+app.get('/*', (req, res) =>
+    res.sendFile('index.html', {root: 'dist/DocDash/'}),
+);
 
-app.use(express.static("docu-dash"));
-
-// Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080);
