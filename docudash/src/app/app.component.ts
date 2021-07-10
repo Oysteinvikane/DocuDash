@@ -1,10 +1,16 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { products } from './products';
 
 
 
 @Component({
     selector: 'my-app',
     template: `
+
+    <!--
+     * Kendo Appbar top
+    -->
+    
     <kendo-appbar position="top">
       <kendo-appbar-section>
         <button class="k-button k-button-clear">
@@ -51,6 +57,33 @@ import { Component, ViewEncapsulation } from '@angular/core';
                 </kendo-avatar>
             </kendo-appbar-section>
         </kendo-appbar>
+      
+        <!--
+        * Kendo Grid
+        -->
+
+      <kendo-grid [data]="gridData" [style.height.%]=90>
+          <kendo-grid-column field="ProductID" title="ID">
+          </kendo-grid-column>
+          <kendo-grid-column field="ProductName" title="Name">
+          </kendo-grid-column>
+          <kendo-grid-column field="Category.CategoryName" title="Category">
+          </kendo-grid-column>
+          <kendo-grid-column field="UnitPrice" title="Price">
+          </kendo-grid-column>
+          <kendo-grid-column field="UnitsInStock" title="In stock">
+          </kendo-grid-column>
+          <kendo-grid-column field="Discontinued" title="Discontinued">
+              <ng-template kendoGridCellTemplate let-dataItem>
+                 <input type="checkbox" [checked]="dataItem.Discontinued" disabled/>
+              </ng-template>
+          </kendo-grid-column>
+      </kendo-grid>
+
+
+        <!--
+        * Kendo Appbar-bottom
+        -->
 
         <kendo-appbar class="bottom-appbar" position="bottom" themeColor="dark">
             <kendo-appbar-section>
@@ -113,4 +146,5 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 
 export class AppComponent {
+  public gridData: any[] = products;
 }

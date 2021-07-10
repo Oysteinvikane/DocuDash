@@ -6,7 +6,7 @@ import { IndicatorsModule } from '@progress/kendo-angular-indicators';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { IconsModule } from '@progress/kendo-angular-icons';
 import { NavigationModule } from '@progress/kendo-angular-navigation';
-
+import { GridModule } from '@progress/kendo-angular-grid';
 import { AppComponent } from './app.component';
 import { ProgressBarModule } from '@progress/kendo-angular-progressbar';
 import { PopupModule } from '@progress/kendo-angular-popup';
@@ -18,6 +18,7 @@ import { PopupModule } from '@progress/kendo-angular-popup';
         BrowserModule,
         BrowserAnimationsModule,
         LayoutModule,
+        GridModule,
         IndicatorsModule,
         IconsModule,
         InputsModule,
