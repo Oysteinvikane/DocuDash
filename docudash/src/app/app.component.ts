@@ -3,6 +3,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 
 
 @Component({
+    selector: 'my-app',
     template: `
     <kendo-appbar position="top">
       <kendo-appbar-section>
@@ -12,7 +13,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
       </kendo-appbar-section>
 
       <kendo-appbar-section>
-        <h1 class="title">Kendo UI for Angular</h1>
+        <h1 class="title">DocuDash</h1>
       </kendo-appbar-section>
 
       <kendo-appbar-spacer width="32px"></kendo-appbar-spacer>
@@ -50,15 +51,30 @@ import { Component, ViewEncapsulation } from '@angular/core';
                 </kendo-avatar>
             </kendo-appbar-section>
         </kendo-appbar>
+
+        <kendo-appbar class="bottom-appbar" position="bottom" themeColor="dark">
+            <kendo-appbar-section>
+                <ul>
+                    <li><span>What's New</span></li>
+                    <li><span>Subscriptions</span></li>
+                    <li><span>Successful Stories</span></li>
+                    <li><span>About Us</span></li>
+                    <li><span>Contacts</span></li>
+                </ul>
+            </kendo-appbar-section>
+        </kendo-appbar>
+
   `,
   encapsulation: ViewEncapsulation.None,
-  styles: [
-    `
+  styles: [`
+      my-app{
+        padding: 0
+      }
       body {
-        background: #adadb1;
+        background: #FFFFFF;
       }
       .title {
-        font-size: 18px;
+        font-size: 16px;
         margin: 0;
       }
       kendo-badge-container {
@@ -76,17 +92,25 @@ import { Component, ViewEncapsulation } from '@angular/core';
       }
       li:hover {
         cursor: pointer;
-        color: #d6002f;
+        color: #9493A0;
       }
       .actions .k-button {
         padding: 0;
+      }
+      .page-content{
+          height: 100%;
+          background: white;
+          padding: 20px 10px;
+      }
+      .bottom-appbar{
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        justify-content: center;
       }
     `,
   ],
 })
 
 export class AppComponent {
-  title(title: "Docudash") {
-    throw new Error('Method not implemented.');
-  }
 }
